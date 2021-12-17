@@ -22,8 +22,8 @@ public class CategoryService {
 
     private final CategoryRepository categoryRepository;
 
-    public List<Category> list(int parentId) {
-        List<Category> categories = categoryRepositoryImpl.findById(parentId);
+    public List<Category> list(int categoryId) {
+        List<Category> categories = categoryRepositoryImpl.findById(categoryId);
         return categories;
     }
 

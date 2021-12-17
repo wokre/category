@@ -19,9 +19,8 @@ public class CategoryController {
     private final CategoryService categoryService;
 
     @GetMapping(value = "/list")
-    public List<Category> categories(@RequestParam(value = "parentId", required = false, defaultValue = "0") int parentId,
-                                     @RequestParam(value = "name", required = false, defaultValue = "") String name) {
-        return categoryService.list(parentId);
+    public List<Category> categories(@RequestParam(value = "categoryId", required = false, defaultValue = "0") int categoryId) {
+        return categoryService.list(categoryId);
     }
 
     @PostMapping(value = "/save")

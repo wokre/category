@@ -29,16 +29,16 @@ public class CategoryRepositoryImpl implements CategoryRepositoryCustom{
     }
 
     @Override
-    public List<Category> findById(int parentId) {
+    public List<Category> findById(int categoryId) {
         List<Category> categories = query.select(category)
                 .from(category)
-                .where(findParent(parentId)).fetch();
+                .where(findParent(categoryId)).fetch();
         return categories;
     }
 
     private BooleanExpression findParent(int parentId) {
         if (parentId > 0) {
-            return category.parent.id.eq(parentId);
+            return category.id.eq(parentId);
         }
         return null;
     }

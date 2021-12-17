@@ -1,7 +1,6 @@
 package com.shop.category.domain;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,6 +16,7 @@ import static javax.persistence.FetchType.EAGER;
  */
 @Entity
 @Getter @Setter
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class)
 public class Category {
 
     @Id
@@ -28,11 +28,9 @@ public class Category {
 
     @ManyToOne(fetch = EAGER)
     @JoinColumn(name = "parent_id")
-    @JsonManagedReference
     private Category parent;
 
     @OneToMany(mappedBy = "parent", cascade = ALL)
-    @JsonBackReference
     private List<Category> child = new ArrayList<>();
 
     public static Category createCategory(CategoryDto dto) {
