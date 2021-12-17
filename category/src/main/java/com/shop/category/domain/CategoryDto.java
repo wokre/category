@@ -10,4 +10,5 @@ import lombok.Data;
 @AllArgsConstructor
 public class CategoryDto {
     private String name;
+    private int parentId;
 }
