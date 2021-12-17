@@ -30,7 +30,7 @@ public class CategoryController {
 
     @PostMapping(value = "/edit/{id}")
     public Category update(@PathVariable("id") int categoryId, @RequestBody CategoryDto dto) {
-        return categoryService.update(categoryId, dto.getName());
+        return categoryService.update(categoryId, dto);
     }
 
     @DeleteMapping(value = "/delete/{id}")

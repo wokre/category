@@ -44,7 +44,8 @@ public class Category {
         child.setParent(this);
     }
 
-    public void changeName(String name) {
+    public void updateCategory(String name, Category parent) {
         this.name = name;
+        this.parent = parent;
     }
 }

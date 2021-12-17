@@ -37,9 +37,10 @@ public class CategoryService {
         return save;
     }
 
-    public Category update(int categoryId, String name) {
+    public Category update(int categoryId, CategoryDto dto) {
         Category category = categoryRepository.findById(categoryId).get();
-        category.changeName(name);
+        Category parent = categoryRepository.findById(dto.getParentId()).get();
+        category.updateCategory(dto.getName(), parent);
 
         return category;
     }
