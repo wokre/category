@@ -18,6 +18,18 @@ Java, SpringBoot, Gradle, Sprint Data JPA
     * 프로젝트 > build > libs > 생성된 jar 파일 위치
 ###5. Jar 실행
 * java -jar category-0.0.1-SNAPSHOT.jar
-
----
 > 빌드가 안될경우 대비해 프로젝트 내 jar 디렉터리에 빌드한 jar 파일 첨부
+---
+### 호출 API
+#### GET
+* /category/list 
+  * parameter : categoryId
+#### POST
+* /category/save
+* /category/edit/{id}
+  * id : categoryId
+#### DELETE
+* /category/delete/{id}
+  * id : categoryId
+---
+
